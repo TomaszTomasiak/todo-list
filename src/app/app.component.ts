@@ -51,10 +51,12 @@ export class AppComponent {
 
   createTask(name: string, deadline: string){
     const task: Task = {
-      name,
-      deadline,
+      name: this.taskName,
+      deadline: this.taskDate,
       done: false,
     };
     this.tasks.push(task);
+    this.taskName = '';
+    this.taskDate = '';
   }
 }
