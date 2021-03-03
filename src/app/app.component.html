@@ -17,9 +17,10 @@
       placeholder='Dodaj zadanie i datę wykonania'
       (keyup)='0'
       #nameInput
+      [(ngModel)]="taskName"
 
     />
-    <input class='col s2 disabled' type='date' (change) = "0" #dateInput />
+    <input class='col s2 disabled' type='date' (change) = "0" #dateInput [(ngModel)]='taskDate'/>
     <button
       class='btn-floating'
       (click)="
@@ -31,6 +32,7 @@
     >
       +
     </button>
+
   </div>
 
   <ul class='collection'>

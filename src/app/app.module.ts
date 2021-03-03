@@ -3,16 +3,17 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { registerLocaleData } from '@angular/common';
-
 import localePl from '@angular/common/locales/pl';
+import { FormsModule } from '@angular/forms';
 // import localeBn from '@angular/common/locales/bn';
+
 
 registerLocaleData(localePl);
 // registerLocaleData(localeBn);
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule],
   providers: [
     // { provide: LOCALE_ID, useValue: 'pl-PL' }
   ],

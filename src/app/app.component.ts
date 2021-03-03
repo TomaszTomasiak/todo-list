@@ -7,6 +7,8 @@ import { Task } from './task';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  taskName = 'Sugerowane zadanie codzienne: odkurzanie';
+  taskDate = '';
   // taskName: string;
   config: { [key: string]: string | Date } = null;
   tasks: Task[] = [
