@@ -6,8 +6,17 @@
   </nav>
 
   <div class='row'>
-    <button class='btn col s2 offset-s10' (click)='switchEditMode()'>Dodaj zadanie</button>
-    <button class='btn col s2 offset-s10' (click)='switchEditMode()'>Zakończ</button>
+    <ng-container *ngIf='editMode; then editOn; else editOff'></ng-container>
+    <ng-template #editOff>
+      <button class='btn col s2 offset-s10' (click)='switchEditMode()'>
+        Dodaj zadanie
+      </button>
+    </ng-template>
+    <ng-template #editOn>
+      <button class='btn col s2 offset-s10' (click)='switchEditMode()'>
+        Zakończ
+      </button>
+    </ng-template>
   </div>
 
   <div class='row' *ngIf='editMode'>
@@ -16,7 +25,6 @@
       type='text'
       placeholder='Dodaj zadanie i datę wykonania'
       [(ngModel)]='taskName'
-
     />
     <input
       class='col s2 disabled'
@@ -25,7 +33,7 @@
 
     <button
       class='btn-floating'
-      (click)="createTask()"
+      (click)='createTask()'
       [disabled]="taskName === '' || taskDate === '' "
     >
       +
@@ -51,7 +59,7 @@
     </li>
   </ul>
 
-<!--  <h1 *ngIf='tasks.length === 0'>Dzisiaj brak zadań :-)</h1>-->
+  <!--  <h1 *ngIf='tasks.length === 0'>Dzisiaj brak zadań :-)</h1>-->
 
   <ng-template #noTasks>
     <h1>Dzisiaj brak zadań :-)</h1>
