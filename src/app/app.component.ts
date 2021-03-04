@@ -49,7 +49,7 @@ export class AppComponent {
   //   // console.log(target.value);
   // }
 
-  createTask(name: string, deadline: string){
+  createTask(){
     const task: Task = {
       name: this.taskName,
       deadline: this.taskDate,
