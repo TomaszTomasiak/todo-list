@@ -40,9 +40,9 @@
     </button>
 
   </div>
-
   <ul class='collection' *ngIf='tasks.length > 0; else noTasks'>
-    <li class='collection-item row' *ngFor='let task of tasks; let i = index'>
+    <ng-container *ngFor='let task of tasks; let i = index' [ngSwitch]='task.done'>
+    <li class='collection-item row' *ngSwitchCase='false'>
       <span class='col s10'>
         {{i + 1}}. {{task.name}} - {{task.deadline | date: 'dd.MM.yyyy EEEE':'':'pl'}} </span>
       <div class='col s2 right-align'>
@@ -54,9 +54,10 @@
         </button>
       </div>
     </li>
-    <li class='collection-item row'>
-      <span class='col done'>Sprzątanie kuwet</span>
+    <li class='collection-item row' *ngSwitchCase='true'>
+      <span class='col done'>{{task.name}}</span>
     </li>
+    </ng-container>
   </ul>
 
   <!--  <h1 *ngIf='tasks.length === 0'>Dzisiaj brak zadań :-)</h1>-->
