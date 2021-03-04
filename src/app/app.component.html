@@ -33,7 +33,7 @@
 
   </div>
 
-  <ul class='collection'>
+  <ul class='collection' *ngIf='tasks.length > 0; else noTasks'>
     <li class='collection-item row' *ngFor='let task of tasks; let i = index'>
       <span class='col s10'>
         {{i + 1}}. {{task.name}} - {{task.deadline | date: 'dd.MM.yyyy EEEE':'':'pl'}} </span>
@@ -51,7 +51,11 @@
     </li>
   </ul>
 
-  <h1 *ngIf='tasks.length === 0'>Dzisiaj brak zadań :-)</h1>
+<!--  <h1 *ngIf='tasks.length === 0'>Dzisiaj brak zadań :-)</h1>-->
+
+  <ng-template #noTasks>
+    <h1>Dzisiaj brak zadań :-)</h1>
+  </ng-template>
 
   <button
     class='btn red'
