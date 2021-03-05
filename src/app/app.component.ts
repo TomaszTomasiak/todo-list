@@ -68,4 +68,8 @@ export class AppComponent {
   markTaskAsDone(task: Task) {
     task.done = true;
   }
+
+  deleteTask(task: Task) {
+    this.tasks = this.tasks.filter(e => e !== task);
+  }
 }
