@@ -64,4 +64,8 @@ export class AppComponent {
   switchEditMode() {
     this.editMode = !this.editMode;
   }
+
+  markTaskAsDone(task: Task) {
+    task.done = true;
+  }
 }
